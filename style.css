@@ -1,0 +1,121 @@
+/* General Styles */
+
+body {
+    padding-top: 56px;
+    /* Adjust if your navbar height changes */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Enables smooth scrolling for anchor links */
+    scroll-padding-top: 56px;
+    /* Offset for fixed navbar */
+}
+
+
+/* Section Padding */
+
+section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+
+/* Hero Section Specifics */
+
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1581092918056-0c7c3015c82d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8NHx8Y2N0dnxlbnwwfHx8fDE2NzU4MTg5MTA&ixlib=rb-4.0.3&q=80&w=1920') no-repeat center center;
+    background-size: cover;
+    color: white;
+    min-height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero h1 {
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#hero .lead {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+
+/* Dividers for Section Titles */
+
+.divider {
+    width: 100px;
+    height: 3px;
+    background-color: #0d6efd;
+    /* Bootstrap primary color */
+    margin: 1rem auto;
+    border: none;
+}
+
+.divider-light {
+    width: 100px;
+    height: 3px;
+    background-color: #f8f9fa;
+    /* Bootstrap light color */
+    margin: 1rem auto;
+    border: none;
+}
+
+
+/* Card Styling Enhancements */
+
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-title i {
+    color: #0d6efd;
+    /* Bootstrap primary color */
+}
+
+
+/* Team & Tools Badges */
+
+#team-tools .badge {
+    font-size: 0.9rem;
+}
+
+
+/* Responsive Adjustments */
+
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+    #hero .lead {
+        font-size: 1.1rem;
+    }
+    .display-5 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
+        /* Center nav items in mobile view when toggled */
+    }
+}
+
+
+/* Ensure fixed navbar doesn't hide anchor link targets */
+
+:target {
+    scroll-margin-top: 70px;
+    /* Same as body padding-top + a little extra if needed */
+}
