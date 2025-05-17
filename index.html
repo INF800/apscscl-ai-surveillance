@@ -1,189 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Based CCTV Analytics in APSCSCL Warehouses</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* Add padding to body for fixed-top navbar */
-        body {
-            padding-top: 56px; /* Adjust this value if your navbar height is different */
-        }
-
-        .nav-tabs .nav-link.active {
-            background-color: #007bff;
-            color: white;
-            border-color: #007bff #007bff #fff;
-        }
-
-        /*
-         Bootstrap's default CSS handles the display of tab-panes.
-         The following custom rules are generally not needed and have been removed
-         to rely on Bootstrap's built-in mechanisms for .fade, .show, and .active classes.
-        */
-        /*
-        .tab-content > .tab-pane {
-            display: none;
-        }
-
-        .tab-content > .active {
-            display: block;
-        }
-        */
-
-        .pdf-container {
-            height: 600px; /* Adjust as needed */
-            width: 100%;
-        }
-
-        /* Custom divider styles (example) */
-        hr.divider {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            border: 0;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        hr.divider-light {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            border: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.3); /* Lighter for dark backgrounds */
-        }
-
-        #hero {
-             min-height: calc(100vh - 56px); /* Optional: Make hero fill remaining viewport height */
-             display: flex; /* d-flex is already on the element, ensuring it works */
-             align-items: center; /* align-items-center is already on the element */
-        }
-    </style>
+    <title>CCTV.AI Hackathon - Project Sentinel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <header>
         <div class="container">
-            <a class="navbar-brand" href="#hero">APSCSCL AI Surveillance</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hero">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#demo">Demo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+            <h1 class="logo">Project Sentinel: CCTV.AI</h1>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#proposal">Proposal</a></li>
+                    <li><a href="#problems">Problem Statements</a></li>
+                    <li><a href="#team">Our Team</a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <section id="hero" class="d-flex align-items-center text-center"> <div class="container">
-            <h1 class="display-3">AI-Based CCTV Analytics in APSCSCL Warehouses</h1>
-            <p class="lead my-4">Real-time AI-based face and vehicle recognition for smart surveillance in public
-                warehouses.</p>
-            <a href="#demo" class="btn btn-primary btn-lg">Watch Demo</a>
-        </div>
-    </section>
-
-    <section id="demo" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="display-5 mb-4">Demonstrations & Use Cases</h2> <hr class="divider mb-5">
-
-            <ul class="nav nav-tabs justify-content-center" id="useCaseTabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="usecase1-tab" data-bs-toggle="tab" data-bs-target="#usecase1"
-                        type="button" role="tab" aria-controls="usecase1" aria-selected="true">Unauthorized Access
-                        Detection</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="usecase2-tab" data-bs-toggle="tab" data-bs-target="#usecase2"
-                        type="button" role="tab" aria-controls="usecase2" aria-selected="false">Vehicle Tracking</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="usecase3-tab" data-bs-toggle="tab" data-bs-target="#usecase3"
-                        type="button" role="tab" aria-controls="usecase3" aria-selected="false">Intruder Alerting</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="usecase4-tab" data-bs-toggle="tab" data-bs-target="#usecase4"
-                        type="button" role="tab" aria-controls="usecase4" aria-selected="false">Anomaly Detection</button>
-                </li>
-            </ul>
-
-            <div class="tab-content mt-4" id="useCaseTabsContent">
-                <div class="tab-pane fade show active" id="usecase1" role="tabpanel" aria-labelledby="usecase1-tab">
-                    <p class="lead mb-4">See details about our solution.</p>
-                    <div class="pdf-container shadow rounded">
-                        <embed src="./cctvai.org-apscscl.pdf" type="application/pdf" width="100%" height="100%" />
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="usecase2" role="tabpanel" aria-labelledby="usecase2-tab">
-                    <h3 class="mb-3">Vehicle Tracking</h3>
-                    <p class="lead">Coming Soon!</p>
-                </div>
-                <div class="tab-pane fade" id="usecase3" role="tabpanel" aria-labelledby="usecase3-tab">
-                    <h3 class="mb-3">Intruder Alerting</h3>
-                    <p class="lead">Coming Soon!</p>
-                </div>
-                <div class="tab-pane fade" id="usecase4" role="tabpanel" aria-labelledby="usecase4-tab">
-                    <h3 class="mb-3">Anomaly Detection</h3>
-                    <p class="lead">Coming Soon!</p>
-                </div>
+    <section id="hero">
+        <div class="hero-overlay">
+            <div class="container">
+                <h2>Revolutionizing Surveillance with AI</h2>
+                <p>Presenting innovative solutions for next-generation CCTV analytics. Witness the future of security.</p>
+                <a href="#problems" class="cta-button">Explore Our Solutions</a>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-5 bg-dark text-white">
-        <div class="container text-center">
-            <h2 class="display-5 mb-4">Get In Touch</h2>
-            <hr class="divider-light mb-5">
-            <p class="lead mb-4">
-                We'd love to hear from you! Check out our repository or connect with us.
-            </p>
-            <div>
-                <a href="https://github.com/your-username/your-repo-name" target="_blank"
-                    class="btn btn-outline-light btn-lg m-2">
-                    <i class="fab fa-github me-2"></i> GitHub Repository
-                </a>
-                <a href="https://linkedin.com/in/janedoe" target="_blank" class="btn btn-outline-light btn-lg m-2">
-                    <i class="fab fa-linkedin me-2"></i> Jane Doe
-                </a>
-                <a href="https://linkedin.com/in/johnsmith" target="_blank" class="btn btn-outline-light btn-lg m-2">
-                    <i class="fab fa-linkedin me-2"></i> John Smith
-                </a>
-                </div>
-            <p class="mt-4">
-                For inquiries, you can also reach us at: <a href="mailto:contact@example.com"
-                    class="text-white">contact@example.com</a>
-            </p>
-        </div>
-    </section>
-
-    <footer class="py-4 bg-black text-white-50 text-center">
+    <section id="proposal">
         <div class="container">
-            <small>Copyright © Your Team Name 2025. APSCSCL Smart Surveillance Hackathon.</small>
+            <h2>Our Project Proposal</h2>
+            <p>Get an in-depth look at our project scope, objectives, and methodology. Click below to view our detailed proposal.</p>
+            <div class="pdf-viewer-container">
+                <iframe src="./cctvai.org-apscscl.pdf" width="100%" height="600px" style="border: none;"></iframe>
+                <p class="pdf-fallback">Your browser does not support embedded PDFs. You can <a href="./cctvai.org-apscscl.pdf" target="_blank">download the PDF</a> instead.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="problems">
+        <div class="container">
+            <h2>Problem Statements & Our Solutions</h2>
+            <div class="tabs">
+                <button class="tablink active" onclick="openProblem(event, 'gunnyBags')">Gunny Bags Tracking</button>
+                <button class="tablink" onclick="openProblem(event, 'faceRecognition')">Face Recognition</button>
+                <button class="tablink" onclick="openProblem(event, 'vehicleAuth')">Vehicle Authentication</button>
+                <button class="tablink" onclick="openProblem(event, 'videoAnalytics')">Video Analytics</button>
+            </div>
+
+            <div id="gunnyBags" class="tabcontent" style="display:block;">
+                <h3>Automated Gunny Bag Tracking & Management</h3>
+                <p><strong>Use Case:</strong> Efficiently monitor and manage the movement and count of gunny bags in warehouses and logistics hubs. This system aims to reduce manual labor, minimize errors, and enhance inventory accuracy through real-time automated tracking using CCTV footage.</p>
+                <p><strong>Our Approach:</strong> We've developed a deep learning model capable of identifying and tracking individual gunny bags even in cluttered environments. The system can count bags entering or leaving designated zones, providing alerts for discrepancies and generating automated reports for inventory management.</p>
+                <div class="video-placeholder-container">
+                    <h4>Demonstration Video:</h4>
+                    <div class="video-placeholder">
+                        <p>Video of Gunny Bag Tracking in Action</p>
+                        <span>▶</span>
+                    </div>
+                    <p class="dummy-video-text">Our system accurately detects and counts gunny bags in real-time footage, showcasing its potential for warehouse automation.</p>
+                </div>
+            </div>
+
+            <div id="faceRecognition" class="tabcontent">
+                <h3>Advanced Face Recognition for Secure Access & Monitoring</h3>
+                <p><strong>Use Case:</strong> Enhance security by identifying authorized personnel and detecting unauthorized individuals in restricted areas. This system can be used for access control, attendance tracking, and identifying persons of interest from watchlists.</p>
+                <p><strong>Our Approach:</strong> Our solution utilizes state-of-the-art facial recognition algorithms that are robust to variations in lighting, pose, and expression. We've focused on creating a system that offers high accuracy and real-time processing, integrating with existing CCTV infrastructure.</p>
+                <div class="video-placeholder-container">
+                    <h4>Demonstration Video:</h4>
+                    <div class="video-placeholder">
+                        <p>Live Face Recognition Demo</p>
+                        <span>▶</span>
+                    </div>
+                    <p class="dummy-video-text">The video demonstrates the system's ability to accurately identify individuals from a pre-defined database in various scenarios.</p>
+                </div>
+            </div>
+
+            <div id="vehicleAuth" class="tabcontent">
+                <h3>AI-Powered Vehicle Authentication & Access Control</h3>
+                <p><strong>Use Case:</strong> Automate vehicle entry and exit in parking lots, gated communities, and secure facilities by recognizing license plates and vehicle characteristics. This system helps in managing traffic flow and enhancing security by logging vehicle movements.</p>
+                <p><strong>Our Approach:</strong> We've built a system that combines license plate recognition (LPR) with vehicle model and color identification. This multi-factor authentication reduces false positives and provides a more secure and efficient vehicle access control mechanism.</p>
+                <div class="video-placeholder-container">
+                    <h4>Demonstration Video:</h4>
+                    <div class="video-placeholder">
+                        <p>Vehicle Authentication System Showcase</p>
+                        <span>▶</span>
+                    </div>
+                    <p class="dummy-video-text">See how our system quickly and accurately authenticates vehicles based on license plates and visual features.</p>
+                </div>
+            </div>
+
+            <div id="videoAnalytics" class="tabcontent">
+                <h3>Comprehensive Video Analytics for Proactive Security</h3>
+                <p><strong>Use Case:</strong> Go beyond simple recording and enable intelligent video analysis for anomaly detection, crowd behavior analysis, object detection (e.g., unattended baggage), and traffic monitoring. This provides actionable insights for proactive security and operational efficiency.</p>
+                <p><strong>Our Approach:</strong> Our platform integrates multiple AI-driven video analytics modules. It can be configured to detect specific events or behaviors, sending real-time alerts to security personnel. We've focused on modularity and scalability to adapt to diverse surveillance needs.</p>
+                <div class="video-placeholder-container">
+                    <h4>Demonstration Video:</h4>
+                    <div class="video-placeholder">
+                        <p>Advanced Video Analytics Suite</p>
+                        <span>▶</span>
+                    </div>
+                    <p class="dummy-video-text">This demo highlights various analytical capabilities, including loitering detection, crowd density estimation, and object classification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <h2>Meet the Sentinels</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/150/007bff/FFFFFF?text=Team+Lead" alt="Team Member 1">
+                    <h3>Alex "Vision" Lee</h3>
+                    <p>Project Lead & AI Architect. Passionate about pushing the boundaries of computer vision.</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/150/28a745/FFFFFF?text=ML+Guru" alt="Team Member 2">
+                    <h3>Ben "Algo" Carter</h3>
+                    <p>Machine Learning Specialist. Expert in developing and fine-tuning detection algorithms.</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/150/ffc107/000000?text=Data+Wizard" alt="Team Member 3">
+                    <h3>Casey "Data" Park</h3>
+                    <p>Data Engineer & Analyst. Ensures our models are trained on high-quality, diverse datasets.</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/150/dc3545/FFFFFF?text=UX+Designer" alt="Team Member 4">
+                    <h3>Dana "Pixel" Roy</h3>
+                    <p>UI/UX Designer. Focused on creating intuitive interfaces for our surveillance solutions.</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/150/17a2b8/FFFFFF?text=Backend+Dev" alt="Team Member 5">
+                    <h3>Evan "Code" Kim</h3>
+                    <p>Backend Developer. Builds the robust infrastructure powering our AI applications.</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/150/6f42c1/FFFFFF?text=Frontend+Dev" alt="Team Member 6">
+                    <h3>Finn "Script" Bell</h3>
+                    <p>Frontend Developer. Brings the user interface to life with seamless interactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Project Sentinel - CCTV.AI Hackathon Team. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script>
-        // No custom JavaScript needed for basic Bootstrap tabs if using data-bs-* attributes correctly.
-        // Bootstrap's JS will handle the tab switching.
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
