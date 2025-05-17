@@ -1,160 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCTV.AI Hackathon - Project Sentinel</title>
+    <title>AI Surveillance Innovations</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1 class="logo">Project Sentinel: CCTV.AI</h1>
+
+<body class="light-theme">
+
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="animate-on-scroll fade-in-down">
+        <div class="container header-container">
+            <a href="#hero" class="logo-link">
+                <h1 class="logo">CCTVAI.ORG</h1>
+            </a>
             <nav>
                 <ul>
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#proposal">Proposal</a></li>
-                    <li><a href="#problems">Problem Statements</a></li>
-                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#team">Team</a></li>
                 </ul>
             </nav>
+            <button id="theme-toggle" title="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </header>
 
-    <section id="hero">
-        <div class="hero-overlay">
+    <main>
+        <section id="hero">
+            <div class="hero-background-animation"></div>
+            <div class="hero-particles" id="hero-particles"></div>
+            <div class="container hero-content-container">
+                <div class="hero-content animate-on-scroll fade-in-up">
+                    <h2><span class="hero-title-gradient">Smart CCTV Analytics</span><br>
+                        The Future of AI
+                        Surveillance.</h2>
+                    <p class="subtitle">Intelligent Surveillance System for APSCSCL Warehouse CCTV cameras. Built for
+                        APSCSCL Warehouse CCTV AI Hackathon.</p>
+                    <a href="#solutions" class="cta-button">Discover Our Technology <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="proposal" class="animate-on-scroll fade-in">
             <div class="container">
-                <h2>Revolutionizing Surveillance with AI</h2>
-                <p>Presenting innovative solutions for next-generation CCTV analytics. Witness the future of security.</p>
-                <a href="#problems" class="cta-button">Explore Our Solutions</a>
+                <h2 class="section-title">Project Proposal</h2>
+                <p class="section-subtitle">AI-powered CCTV analytics solution
+                    addressing <b>all four use cases</b> identified by the Andhra Pradesh State Civil Supplies
+                    Corporation Limited (APSCSCL) in their hackathon challenge.</p>
+                <div class="pdf-viewer-container animate-on-scroll scale-up">
+                    <iframe src="./cctvai.org-apscscl.pdf" width="100%" height="600px" style="border: none;"
+                        title="Project Proposal PDF"></iframe>
+                    <p class="pdf-fallback">Your browser does not support embedded PDFs. You can <a
+                            href="./cctvai.org-apscscl.pdf" target="_blank" rel="noopener noreferrer">download the
+                            PDF</a> instead.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="proposal">
-        <div class="container">
-            <h2>Our Project Proposal</h2>
-            <p>Get an in-depth look at our project scope, objectives, and methodology. Click below to view our detailed proposal.</p>
-            <div class="pdf-viewer-container">
-                <iframe src="./cctvai.org-apscscl.pdf" width="100%" height="600px" style="border: none;"></iframe>
-                <p class="pdf-fallback">Your browser does not support embedded PDFs. You can <a href="./cctvai.org-apscscl.pdf" target="_blank">download the PDF</a> instead.</p>
-            </div>
-        </div>
-    </section>
+        <section id="solutions" class="animate-on-scroll fade-in">
+            <div class="container">
+                <h2 class="section-title">Our Intelligent Solutions</h2>
+                <div class="tabs animate-on-scroll fade-in-up" data-delay="100">
+                    <button class="tablink active" onclick="openSolution(event, 'gunnyBags')"><i
+                            class="fas fa-box-open"></i> Gunny Bags Tracking</button>
+                    <button class="tablink" onclick="openSolution(event, 'faceRecognition')"><i
+                            class="fas fa-user-shield"></i> Face Recognition</button>
+                    <button class="tablink" onclick="openSolution(event, 'vehicleAuth')"><i class="fas fa-car-on"></i>
+                        Vehicle Authentication</button>
+                    <button class="tablink" onclick="openSolution(event, 'videoAnalytics')"><i class="fas fa-video"></i>
+                        Advanced Video Analytics</button>
+                </div>
 
-    <section id="problems">
-        <div class="container">
-            <h2>Problem Statements & Our Solutions</h2>
-            <div class="tabs">
-                <button class="tablink active" onclick="openProblem(event, 'gunnyBags')">Gunny Bags Tracking</button>
-                <button class="tablink" onclick="openProblem(event, 'faceRecognition')">Face Recognition</button>
-                <button class="tablink" onclick="openProblem(event, 'vehicleAuth')">Vehicle Authentication</button>
-                <button class="tablink" onclick="openProblem(event, 'videoAnalytics')">Video Analytics</button>
-            </div>
-
-            <div id="gunnyBags" class="tabcontent" style="display:block;">
-                <h3>Automated Gunny Bag Tracking & Management</h3>
-                <p><strong>Use Case:</strong> Efficiently monitor and manage the movement and count of gunny bags in warehouses and logistics hubs. This system aims to reduce manual labor, minimize errors, and enhance inventory accuracy through real-time automated tracking using CCTV footage.</p>
-                <p><strong>Our Approach:</strong> We've developed a deep learning model capable of identifying and tracking individual gunny bags even in cluttered environments. The system can count bags entering or leaving designated zones, providing alerts for discrepancies and generating automated reports for inventory management.</p>
-                <div class="video-placeholder-container">
-                    <h4>Demonstration Video:</h4>
-                    <div class="video-placeholder">
-                        <p>Video of Gunny Bag Tracking in Action</p>
-                        <span>▶</span>
+                <div id="gunnyBags" class="tabcontent animate-on-scroll fade-in-up" data-delay="200"
+                    style="display:block;">
+                    <div class="tabcontent-inner">
+                        <div class="text-content">
+                            <h3><i class="fas fa-boxes-stacked icon-header"></i> Automated Gunny Bag Logistics</h3>
+                            <p><strong>Use Case:</strong> Revolutionize warehouse operations by accurately tracking
+                                gunny bags in real-time. Our system enhances inventory precision, reduces manual labor,
+                                and provides critical data for supply chain optimization.</p>
+                            <p><strong>Our Approach:</strong> Leveraging advanced object detection and instance
+                                segmentation, our AI model identifies, counts, and tracks gunny bags through complex
+                                logistical environments, integrating with inventory systems for seamless management.</p>
+                        </div>
+                        <div class="media-content">
+                            <h4>Live Demonstration</h4>
+                            <video class="solution-video interactive-media" width="100%" controls
+                                poster="./im_video_poster.png">
+                                <source src="./gunny-demo.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p class="video-caption">See our system intelligently manage inventory flow.</p>
+                        </div>
                     </div>
-                    <p class="dummy-video-text">Our system accurately detects and counts gunny bags in real-time footage, showcasing its potential for warehouse automation.</p>
                 </div>
-            </div>
 
-            <div id="faceRecognition" class="tabcontent">
-                <h3>Advanced Face Recognition for Secure Access & Monitoring</h3>
-                <p><strong>Use Case:</strong> Enhance security by identifying authorized personnel and detecting unauthorized individuals in restricted areas. This system can be used for access control, attendance tracking, and identifying persons of interest from watchlists.</p>
-                <p><strong>Our Approach:</strong> Our solution utilizes state-of-the-art facial recognition algorithms that are robust to variations in lighting, pose, and expression. We've focused on creating a system that offers high accuracy and real-time processing, integrating with existing CCTV infrastructure.</p>
-                <div class="video-placeholder-container">
-                    <h4>Demonstration Video:</h4>
-                    <div class="video-placeholder">
-                        <p>Live Face Recognition Demo</p>
-                        <span>▶</span>
+                <div id="faceRecognition" class="tabcontent animate-on-scroll fade-in-up" data-delay="200">
+                    <div class="tabcontent-inner">
+                        <div class="text-content">
+                            <h3><i class="fas fa-id-card icon-header"></i> Secure Face Recognition</h3>
+                            <p><strong>Use Case:</strong> Elevate security standards with robust facial recognition for
+                                access control, identity verification, and watchlist monitoring across diverse
+                                operational scenarios.</p>
+                            <p><strong>Our Approach:</strong> Our deep learning models provide superior accuracy in face
+                                detection and matching, resilient to challenging conditions like poor lighting, varied
+                                poses, and partial occlusions. Designed for speed and scalability.</p>
+                        </div>
+                        <div class="media-content">
+                            <h4>Technology Preview</h4>
+                            <div class="coming-soon-placeholder interactive-media">
+                                <p>Video Coming Soon</p>
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <p class="video-caption">A comprehensive demo is under development.</p>
+                        </div>
                     </div>
-                    <p class="dummy-video-text">The video demonstrates the system's ability to accurately identify individuals from a pre-defined database in various scenarios.</p>
                 </div>
-            </div>
 
-            <div id="vehicleAuth" class="tabcontent">
-                <h3>AI-Powered Vehicle Authentication & Access Control</h3>
-                <p><strong>Use Case:</strong> Automate vehicle entry and exit in parking lots, gated communities, and secure facilities by recognizing license plates and vehicle characteristics. This system helps in managing traffic flow and enhancing security by logging vehicle movements.</p>
-                <p><strong>Our Approach:</strong> We've built a system that combines license plate recognition (LPR) with vehicle model and color identification. This multi-factor authentication reduces false positives and provides a more secure and efficient vehicle access control mechanism.</p>
-                <div class="video-placeholder-container">
-                    <h4>Demonstration Video:</h4>
-                    <div class="video-placeholder">
-                        <p>Vehicle Authentication System Showcase</p>
-                        <span>▶</span>
+                <div id="vehicleAuth" class="tabcontent animate-on-scroll fade-in-up" data-delay="200">
+                    <div class="tabcontent-inner">
+                        <div class="text-content">
+                            <h3><i class="fas fa-car-burst icon-header"></i> Smart Vehicle Authentication</h3>
+                            <p><strong>Use Case:</strong> Automate and secure vehicle entry/exit points for facilities,
+                                campuses, and parking structures. Our system enhances traffic flow and logs vehicle
+                                movements with precision.</p>
+                            <p><strong>Our Approach:</strong> We combine high-accuracy License Plate Recognition (LPR)
+                                with vehicle make, model, and color identification (MMCR) for a multi-layered
+                                authentication process, ensuring robust and reliable access control.</p>
+                        </div>
+                        <div class="media-content">
+                            <h4>Technology Preview</h4>
+                            <div class="coming-soon-placeholder interactive-media">
+                                <p>Video Coming Soon</p>
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <p class="video-caption">Showcasing our vehicle AI in the near future.</p>
+                        </div>
                     </div>
-                    <p class="dummy-video-text">See how our system quickly and accurately authenticates vehicles based on license plates and visual features.</p>
                 </div>
-            </div>
 
-            <div id="videoAnalytics" class="tabcontent">
-                <h3>Comprehensive Video Analytics for Proactive Security</h3>
-                <p><strong>Use Case:</strong> Go beyond simple recording and enable intelligent video analysis for anomaly detection, crowd behavior analysis, object detection (e.g., unattended baggage), and traffic monitoring. This provides actionable insights for proactive security and operational efficiency.</p>
-                <p><strong>Our Approach:</strong> Our platform integrates multiple AI-driven video analytics modules. It can be configured to detect specific events or behaviors, sending real-time alerts to security personnel. We've focused on modularity and scalability to adapt to diverse surveillance needs.</p>
-                <div class="video-placeholder-container">
-                    <h4>Demonstration Video:</h4>
-                    <div class="video-placeholder">
-                        <p>Advanced Video Analytics Suite</p>
-                        <span>▶</span>
+                <div id="videoAnalytics" class="tabcontent animate-on-scroll fade-in-up" data-delay="200">
+                    <div class="tabcontent-inner">
+                        <div class="text-content">
+                            <h3><i class="fas fa-brain icon-header"></i> Proactive Video Analytics</h3>
+                            <p><strong>Use Case:</strong> Transform passive surveillance into active intelligence.
+                                Detect anomalies, monitor crowd dynamics, identify unattended objects, and analyze
+                                traffic patterns for enhanced security and operational efficiency.</p>
+                            <p><strong>Our Approach:</strong> A modular suite of AI-driven analytics tools that can be
+                                customized to detect specific events and behaviors, providing real-time alerts and
+                                actionable data for informed decision-making.</p>
+                        </div>
+                        <div class="media-content">
+                            <h4>Technology Preview</h4>
+                            <div class="coming-soon-placeholder interactive-media">
+                                <p>Video Coming Soon</p>
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <p class="video-caption">Our advanced analytics suite demo is being finalized.</p>
+                        </div>
                     </div>
-                    <p class="dummy-video-text">This demo highlights various analytical capabilities, including loitering detection, crowd density estimation, and object classification.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="team">
+        <section id="team" class="animate-on-scroll fade-in">
+            <div class="container">
+                <h2 class="section-title">The Team</h2>
+                <p class="section-subtitle">Meet the architects of innovation. Our diverse team combines expertise in
+                    AI, engineering, and design to build the future of surveillance technology.</p>
+                <div class="team-grid">
+                    <div class="team-card animate-on-scroll fade-in-up" data-delay="0">
+                        <img src="./krns-c-min.png" alt="Alex Lee Avatar" class="team-avatar">
+                        <h3>Krishna Praveen</h3>
+                        <!-- <p class="team-role">Project Lead & AI Architect</p> -->
+                        <p>Krishna Praveen from IIT Kharagpur 2014
+                            is a Data Scientist working with Enterprise AI
+                            systems in supply chain, warehousing and
+                            distribution space. Has extensive experience
+                            in AI/ML and Gen AI. Cofounded AI
+                            company previously.
+                        </p>
+                        <div class="team-social-icons">
+                            <a href="https://www.linkedin.com/in/krishna-praveen-97998a2a/" title="LinkedIn"><i
+                                    class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/krishna-praveen" title="GitHub"><i
+                                    class="fab fa-github"></i></a>
+                            <!-- <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a> -->
+                        </div>
+                    </div>
+                    <div class="team-card animate-on-scroll fade-in-up" data-delay="100">
+                        <img src="./par-c-min.png" alt="Ben Carter Avatar" class="team-avatar">
+                        <h3>Parameswar Kumavath</h3>
+                        <!-- <p class="team-role">Machine Learning Specialist</p> -->
+                        <p>Parameswar Kumavath from IIT Kanpur
+                            2015 and LJMU has extensive academic ML
+                            experience. Formerly an Audio Engineer, he
+                            now develops an LMS platform at his own
+                            startup. He has full-stack experience and
+                            builds & deploys ML models.</p>
+                        <div class="team-social-icons">
+                            <a href="https://www.linkedin.com/in/parameshwar-kumawath/" title="LinkedIn"><i
+                                    class="fab fa-linkedin"></i></a>
+                            <!-- <a href="#" title="GitHub"><i class="fab fa-github"></i></a> -->
+                        </div>
+                    </div>
+                    <div class="team-card animate-on-scroll fade-in-up" data-delay="200">
+                        <img src="./rakesh-c-min.png" alt="Casey Park Avatar" class="team-avatar">
+                        <h3>Asapanna Rakesh</h3>
+                        <!-- <p class="team-role">Data Engineer & Analyst</p> -->
+                        <p>Asapanna Rakesh, Director of Technology
+                            at his own startup. Previously Sr. Research
+                            Engineer at India’s largest geospatial
+                            company. He loves modelling intelligent
+                            systems, solving problems and building
+                            products that matter.
+                        </p>
+                        <div class="team-social-icons">
+                            <a href="https://www.linkedin.com/in/asapanna-rakesh/" title="LinkedIn"><i
+                                    class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/INF800" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card animate-on-scroll fade-in-up" data-delay="300">
+                        <img src="./sritej-c-min.png" alt="Dana Roy Avatar" class="team-avatar">
+                        <h3>Sritej Reddy</h3>
+                        <!-- <p class="team-role">UX/UI & System Integration</p> -->
+                        <p>Sritej Reddy, a ML Engineer with diverse
+                            skillset such as full-stack application
+                            development, Python, Java, C++,
+                            TensorFlow, NumPy, and Pandas. He also has
+                            experience in RPA using Blue Prism,
+                            embedded systems, and IoT.</p>
+                        <div class="team-social-icons">
+                            <a href="https://www.linkedin.com/in/sritej-reddy-1514b4238" title="LinkedIn"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card animate-on-scroll fade-in-up" data-delay="400">
+                        <img src="./jas-c-min.png" alt="Evan Kim Avatar" class="team-avatar">
+                        <h3>Ram Jaswanth</h3>
+                        <!-- <p class="team-role">Backend & Infrastructure Lead</p> -->
+                        <p>Ram Jaswanth, a Member of Technical
+                            Staff at Alphanome.AI where he builds
+                            innovative solutions in the AI and technology
+                            space. Works with Generative AI, LLMs and
+                            engineering at scale to build AI driven
+                            ventures.</p>
+                        <div class="team-social-icons">
+                            <a href="https://www.linkedin.com/in/jaganramjaswanth/" title="LinkedIn"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card animate-on-scroll fade-in-up" data-delay="500">
+                        <img src="./teja-c-min.png" alt="Finn Bell Avatar" class="team-avatar">
+                        <h3>Teja Saraswathula</h3>
+                        <!-- <p class="team-role">Frontend & Deployment Specialist</p> -->
+                        <p>Teja Saraswathula, a Senior Software
+                            Developer and Engineer at Tech Mahindra in
+                            automotive industry space. Has extensive
+                            experience in building production ready and
+                            battle-tested scalable software systems.
+                            Skilled programmer.</p>
+                        <div class="team-social-icons">
+                            <a href="https://www.linkedin.com/in/teja-saraswathula" title="LinkedIn"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="animate-on-scroll fade-in">
         <div class="container">
-            <h2>Meet the Sentinels</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <img src="https://via.placeholder.com/150/007bff/FFFFFF?text=Team+Lead" alt="Team Member 1">
-                    <h3>Alex "Vision" Lee</h3>
-                    <p>Project Lead & AI Architect. Passionate about pushing the boundaries of computer vision.</p>
-                </div>
-                <div class="team-card">
-                    <img src="https://via.placeholder.com/150/28a745/FFFFFF?text=ML+Guru" alt="Team Member 2">
-                    <h3>Ben "Algo" Carter</h3>
-                    <p>Machine Learning Specialist. Expert in developing and fine-tuning detection algorithms.</p>
-                </div>
-                <div class="team-card">
-                    <img src="https://via.placeholder.com/150/ffc107/000000?text=Data+Wizard" alt="Team Member 3">
-                    <h3>Casey "Data" Park</h3>
-                    <p>Data Engineer & Analyst. Ensures our models are trained on high-quality, diverse datasets.</p>
-                </div>
-                <div class="team-card">
-                    <img src="https://via.placeholder.com/150/dc3545/FFFFFF?text=UX+Designer" alt="Team Member 4">
-                    <h3>Dana "Pixel" Roy</h3>
-                    <p>UI/UX Designer. Focused on creating intuitive interfaces for our surveillance solutions.</p>
-                </div>
-                <div class="team-card">
-                    <img src="https://via.placeholder.com/150/17a2b8/FFFFFF?text=Backend+Dev" alt="Team Member 5">
-                    <h3>Evan "Code" Kim</h3>
-                    <p>Backend Developer. Builds the robust infrastructure powering our AI applications.</p>
-                </div>
-                <div class="team-card">
-                    <img src="https://via.placeholder.com/150/6f42c1/FFFFFF?text=Frontend+Dev" alt="Team Member 6">
-                    <h3>Finn "Script" Bell</h3>
-                    <p>Frontend Developer. Brings the user interface to life with seamless interactions.</p>
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear"></span> Project Sentinel. Pioneering AI in Surveillance. | CCTV.AI
+                    Hackathon</p>
+                <div class="footer-social-links">
+                    <a href="#" aria-label="Project Sentinel on Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Project Sentinel on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Project Sentinel on GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Project Sentinel - CCTV.AI Hackathon Team. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
