@@ -1,121 +1,410 @@
-/* General Styles */
-
+/* Global Styles */
 body {
-    padding-top: 56px;
-    /* Adjust if your navbar height changes */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a2e; /* Dark blue-purple background */
+    color: #e0e0e0; /* Light grey text */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-html {
-    scroll-behavior: smooth;
-    /* Enables smooth scrolling for anchor links */
-    scroll-padding-top: 56px;
-    /* Offset for fixed navbar */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-
-/* Section Padding */
-
-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffff; /* Cyan accent */
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
 }
 
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
 
-/* Hero Section Specifics */
+h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #9effff; /* Lighter cyan */
+}
 
+p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+/* Header */
+header {
+    background-color: rgba(11, 11, 40, 0.85); /* Darker, slightly transparent */
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    margin: 0;
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover, nav ul li a.active-link {
+    background-color: #00ffff;
+    color: #1a1a2e;
+    text-shadow: none;
+}
+
+/* Hero Section */
 #hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1581092918056-0c7c3015c82d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8NHx8Y2N0dnxlbnwwfHx8fDE2NzU4MTg5MTA&ixlib=rb-4.0.3&q=80&w=1920') no-repeat center center;
-    background-size: cover;
-    color: white;
-    min-height: 100vh;
-    /* Full viewport height */
+    background: url('https://images.unsplash.com/photo-1517483540324-117340064396?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAzNTV8MHwxfGFsbHx8fHx8fHx8fDE2ODM2NjE4MTR8&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover; /* Replace with a cool tech/surveillance background */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 80px; /* Account for fixed header */
+}
+
+.hero-overlay {
+    background-color: rgba(10, 25, 47, 0.7); /* Dark blue overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#hero h1 {
+#hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+#hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+}
+
+.cta-button {
+    background-color: #00ffff;
+    color: #1a1a2e;
+    padding: 15px 30px;
+    font-size: 1.2em;
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-#hero .lead {
-    font-size: 1.4rem;
-    font-weight: 300;
-}
-
-
-/* Dividers for Section Titles */
-
-.divider {
-    width: 100px;
-    height: 3px;
-    background-color: #0d6efd;
-    /* Bootstrap primary color */
-    margin: 1rem auto;
     border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
 }
 
-.divider-light {
-    width: 100px;
-    height: 3px;
-    background-color: #f8f9fa;
-    /* Bootstrap light color */
-    margin: 1rem auto;
-    border: none;
+.cta-button:hover {
+    background-color: #ffffff;
+    color: #007bff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px #00ffff, 0 0 35px #00ffff, 0 5px 15px rgba(0,255,255,0.3);
+}
+
+/* Proposal Section */
+#proposal {
+    padding: 80px 0;
+    background-color: #162447; /* Slightly lighter dark blue */
+}
+
+.pdf-viewer-container {
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    margin-top: 30px;
+}
+
+.pdf-viewer-container iframe {
+    border-radius: 8px;
+}
+
+.pdf-fallback {
+    text-align: center;
+    padding: 20px;
+    font-size: 1em;
+}
+.pdf-fallback a {
+    font-weight: bold;
 }
 
 
-/* Card Styling Enhancements */
-
-.card {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+/* Problem Statements Section */
+#problems {
+    padding: 80px 0;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
 }
 
-.card-title i {
-    color: #0d6efd;
-    /* Bootstrap primary color */
+.tablink {
+    background-color: transparent;
+    color: #00ffff;
+    padding: 12px 25px;
+    border: 2px solid #00ffff;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    margin: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tablink:hover {
+    background-color: #00ffff;
+    color: #1a1a2e;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+.tablink.active {
+    background-color: #00ffff;
+    color: #1a1a2e;
+    box-shadow: 0 0 15px #00ffff, inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+.tabcontent {
+    display: none;
+    padding: 30px;
+    border: 1px solid #003f3f; /* Darker cyan border */
+    border-radius: 10px;
+    background-color: rgba(0, 255, 255, 0.05); /* Very subtle cyan tint */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tabcontent h3 {
+    margin-top: 0;
+}
+
+.tabcontent p strong {
+    color: #7fffd4; /* Aquamarine for emphasis */
+}
+
+.video-placeholder-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    border: 1px dashed #007bff;
+}
+.video-placeholder-container h4 {
+    color: #9effff;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border: 2px dashed #007bff;
+    color: #007bff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.video-placeholder:hover {
+    background-color: #0d1a2b;
+}
+
+.video-placeholder p {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #00ffff;
+}
+.video-placeholder span {
+    font-size: 3em;
+    color: #00ffff;
+}
+.dummy-video-text {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-top: 10px;
+    text-align: center;
 }
 
 
-/* Team & Tools Badges */
-
-#team-tools .badge {
-    font-size: 0.9rem;
+/* Team Section */
+#team {
+    padding: 80px 0;
+    background-color: #162447; /* Match proposal section bg */
 }
 
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
 
-/* Responsive Adjustments */
+.team-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #003f3f;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3), 0 0 15px #00ffff;
+}
+
+.team-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #00ffff;
+    margin-bottom: 20px;
+    object-fit: cover;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+.team-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #9effff;
+}
+
+.team-card p {
+    font-size: 0.95em;
+    color: #c0c0c0; /* Lighter grey for card text */
+}
+
+/* Footer */
+footer {
+    background-color: #0b0b28; /* Darker than header */
+    color: #a0a0a0;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 0; /* Ensure no gap */
+    border-top: 1px solid #003f3f;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    #hero h1 {
-        font-size: 2.5rem;
+    header .container {
+        flex-direction: column;
     }
-    #hero .lead {
-        font-size: 1.1rem;
+    .logo {
+        margin-bottom: 15px;
     }
-    .display-5 {
-        font-size: 2.2rem;
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+    #hero h2 {
+        font-size: 2.5em;
+    }
+    #hero p {
+        font-size: 1.2em;
+    }
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .tabs {
+        flex-direction: column;
+    }
+    .tablink {
+        width: 90%;
+        margin: 5px auto;
+    }
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    .pdf-viewer-container iframe {
+        height: 400px; /* Adjust for smaller screens */
     }
 }
 
-@media (max-width: 992px) {
-    .navbar-nav {
-        text-align: center;
-        /* Center nav items in mobile view when toggled */
+@media (max-width: 480px) {
+    #hero h2 {
+        font-size: 2em;
     }
-}
-
-
-/* Ensure fixed navbar doesn't hide anchor link targets */
-
-:target {
-    scroll-margin-top: 70px;
-    /* Same as body padding-top + a little extra if needed */
+    #hero p {
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .tabcontent {
+        padding: 20px;
+    }
 }
