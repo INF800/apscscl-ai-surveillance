@@ -1290,7 +1290,7 @@
 
         <section id="proposal" class="animate-on-scroll fade-in">
             <div class="container">
-                <h2 class="section-title">Project Proposal</h2>
+                <h2 class="section-title">Solution Proposal</h2>
                 <p class="section-subtitle">AI-powered CCTV analytics solution
                     addressing <b>all four use cases</b> identified by the Andhra Pradesh State Civil Supplies
                     Corporation Limited (APSCSCL) in their hackathon challenge.</p>
@@ -1420,7 +1420,7 @@
                 <div class="team-grid">
                     <div class="team-card animate-on-scroll fade-in-up" data-delay="0">
                         <!-- IMPORTANT: Ensure these image files are accessible at these paths relative to the HTML file -->
-                        <img src="./krns-c-min.png" alt="Alex Lee Avatar" class="team-avatar">
+                        <img src="./krns-c-min.png" alt="Krishna Praveen Avatar" class="team-avatar">
                         <h3>Krishna Praveen</h3>
                         <!-- <p class="team-role">Project Lead & AI Architect</p> -->
                         <p>Krishna Praveen from IIT Kharagpur 2014
@@ -1439,7 +1439,7 @@
                         </div>
                     </div>
                     <div class="team-card animate-on-scroll fade-in-up" data-delay="100">
-                        <img src="./par-c-min.png" alt="Ben Carter Avatar" class="team-avatar">
+                        <img src="./par-c-min.png" alt="Parameswar Kumavath Avatar" class="team-avatar">
                         <h3>Parameswar Kumavath</h3>
                         <!-- <p class="team-role">Machine Learning Specialist</p> -->
                         <p>Parameswar Kumavath from IIT Kanpur
@@ -1455,7 +1455,7 @@
                         </div>
                     </div>
                     <div class="team-card animate-on-scroll fade-in-up" data-delay="200">
-                        <img src="./rakesh-c-min.png" alt="Casey Park Avatar" class="team-avatar">
+                        <img src="./rakesh-c-min.png" alt="Asapanna Rakesh Avatar" class="team-avatar">
                         <h3>Asapanna Rakesh</h3>
                         <!-- <p class="team-role">Data Engineer & Analyst</p> -->
                         <p>Asapanna Rakesh, Director of Technology
@@ -1472,7 +1472,7 @@
                         </div>
                     </div>
                     <div class="team-card animate-on-scroll fade-in-up" data-delay="300">
-                        <img src="./sritej-c-min.png" alt="Dana Roy Avatar" class="team-avatar">
+                        <img src="./sritej-c-min.png" alt="Sritej Reddy Avatar" class="team-avatar">
                         <h3>Sritej Reddy</h3>
                         <!-- <p class="team-role">UX/UI & System Integration</p> -->
                         <p>Sritej Reddy, a ML Engineer with diverse
@@ -1487,7 +1487,7 @@
                         </div>
                     </div>
                     <div class="team-card animate-on-scroll fade-in-up" data-delay="400">
-                        <img src="./jas-c-min.png" alt="Evan Kim Avatar" class="team-avatar">
+                        <img src="./jas-c-min.png" alt="Ram Jaswanth Avatar" class="team-avatar">
                         <h3>Ram Jaswanth</h3>
                         <!-- <p class="team-role">Backend & Infrastructure Lead</p> -->
                         <p>Ram Jaswanth, a Member of Technical
@@ -1502,7 +1502,7 @@
                         </div>
                     </div>
                     <div class="team-card animate-on-scroll fade-in-up" data-delay="500">
-                        <img src="./teja-c-min.png" alt="Finn Bell Avatar" class="team-avatar">
+                        <img src="./teja-c-min.png" alt="Teja Saraswathula Avatar" class="team-avatar">
                         <h3>Teja Saraswathula</h3>
                         <!-- <p class="team-role">Frontend & Deployment Specialist</p> -->
                         <p>Teja Saraswathula, a Senior Software
@@ -1524,13 +1524,13 @@
     <footer class="animate-on-scroll fade-in">
         <div class="container">
             <div class="footer-content">
-                <p>© <span id="currentYear"></span> Project Sentinel. Pioneering AI in Surveillance. | CCTV.AI
+                <p>© <span id="currentYear"></span> Team Vizag AI. Pioneering AI in Surveillance. | CCTV.AI
                     Hackathon</p>
-                <div class="footer-social-links">
-                    <a href="#" aria-label="Project Sentinel on Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Project Sentinel on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Project Sentinel on GitHub"><i class="fab fa-github"></i></a>
-                </div>
+                <!-- <div class="footer-social-links">
+                    <a href="#" aria-label="Team Vizag AI on Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Team Vizag AI on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Team Vizag AI on GitHub"><i class="fab fa-github"></i></a>
+                </div> -->
             </div>
         </div>
     </footer>
@@ -1591,7 +1591,10 @@
 
                     if (targetElement) {
                         document.querySelectorAll('nav ul li a').forEach(link => link.classList.remove('active-link'));
-                        this.classList.add('active-link');
+                        if (this.closest('nav')) { // only add active-link if it's a nav link
+                            this.classList.add('active-link');
+                        }
+
 
                         let headerOffset = 80;
                         const header = document.querySelector('header');
@@ -1606,6 +1609,15 @@
                             top: offsetPosition,
                             behavior: 'smooth'
                         });
+
+                        // Update hash without adding to history stack for non-nav links if desired
+                        // or just let the browser handle it for nav links
+                        if (this.closest('nav')) {
+                            // For nav links, we want the hash to change normally
+                        } else {
+                            // For other links like CTA, changing hash might not be desired or handled differently
+                            // history.pushState(null, null, targetId); // if you want to update URL
+                        }
                     }
                 });
             });
@@ -1634,22 +1646,6 @@
                 }
             }
 
-            const firstTabLink = document.querySelector(".tabs .tablink");
-            if (firstTabLink && !window.location.hash.substring(1)) {
-                // Ensure that if there's no hash, the first tab is clicked only if it's not already active (which it would be by default HTML)
-                // The initial 'active' class on the first tab link and 'display:block' on the first tab content handle the initial state.
-                // This click is mainly for cases where JS needs to re-initialize or if the initial state was missed.
-                // However, for this setup, it might be redundant if HTML already sets the first tab active.
-                // Let's refine this: Only click if no other tab is supposed to be active due to a hash.
-                if (!document.querySelector(".tabs .tablink.active") || document.querySelector(".tabs .tablink.active") === firstTabLink) {
-                    // If no tab is active or the first one is active (as per HTML), we can simulate a click if needed
-                    // or just ensure the content is visible. The current `openSolution` already handles showing content.
-                    // Default display is handled by HTML 'style="display:block;"' on the first tab.
-                    // And the 'active' class is on the first tablink in HTML.
-                    // So, this specific click might not be strictly necessary on initial load without hash.
-                }
-            }
-
             // Handle initial tab display based on hash or default
             const openInitialTab = () => {
                 const hash = window.location.hash.substring(1);
@@ -1657,32 +1653,37 @@
                 if (hash) {
                     const tabToOpen = document.querySelector(`.tablink[onclick*="'${hash}'"]`);
                     if (tabToOpen) {
-                        tabToOpen.click(); // This will call openSolution
+                        // openSolution will be called, which also adds 'active' class to tablink
+                        tabToOpen.click();
                         openedByHash = true;
                     }
                 }
 
                 if (!openedByHash) {
                     // If no hash or hash didn't match a tab, ensure the default first tab is open
-                    const defaultFirstTabLink = document.querySelector(".tabs .tablink");
-                    if (defaultFirstTabLink) {
-                        // If the first tab content is not already block, make it so.
-                        const firstTabContentId = defaultFirstTabLink.getAttribute('onclick').match(/'([^']+)'/)[1];
-                        const firstTabContent = document.getElementById(firstTabContentId);
-                        if (firstTabContent && firstTabContent.style.display !== 'block') {
-                            openSolution({ currentTarget: defaultFirstTabLink }, firstTabContentId);
-                        } else if (firstTabContent && firstTabContent.style.display === 'block' && !defaultFirstTabLink.classList.contains('active')) {
-                            // If content is block but link isn't active (e.g. after back navigation)
-                            defaultFirstTabLink.classList.add('active');
-                        }
+                    // The HTML already sets the first tablink to active and first tabcontent to display:block
+                    // This part is to ensure JS state matches HTML state if needed, or if HTML state was somehow lost.
+                    const defaultFirstTabLink = document.querySelector(".tabs .tablink"); // Should be the one with 'active' from HTML
+                    const firstTabContentId = defaultFirstTabLink.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    const firstTabContent = document.getElementById(firstTabContentId);
+
+                    if (defaultFirstTabLink && !defaultFirstTabLink.classList.contains('active')) {
+                        defaultFirstTabLink.classList.add('active');
+                    }
+                    if (firstTabContent && firstTabContent.style.display !== 'block') {
+                        firstTabContent.style.display = 'block';
+                        setTimeout(() => { firstTabContent.classList.add('is-visible'); }, 50);
+                    } else if (firstTabContent && firstTabContent.style.display === 'block' && !firstTabContent.classList.contains('is-visible')) {
+                        // If already block but not yet animated (e.g. on fast refresh)
+                        setTimeout(() => { firstTabContent.classList.add('is-visible'); }, 50);
                     }
                 }
             };
-            openInitialTab();
 
 
             const setActiveNavAndScroll = () => {
                 let currentHashForNav = window.location.hash || '#hero';
+                if (currentHashForNav === '#') currentHashForNav = '#hero'; // Handle empty hash case
 
                 document.querySelectorAll('nav ul li a').forEach(link => link.classList.remove('active-link'));
                 const activeNav = document.querySelector(`nav ul li a[href="${currentHashForNav}"]`);
@@ -1690,9 +1691,12 @@
                     activeNav.classList.add('active-link');
                 }
 
-                if (window.location.hash && window.location.hash !== "#hero") {
+                // Only scroll if there's a hash and it's not the hero section (which is usually at the top)
+                // and the page hasn't just loaded (handled by browser's default hash behavior or specific load logic)
+                if (window.location.hash && window.location.hash !== "#hero" && window.performance.navigation.type !== window.performance.navigation.TYPE_RELOAD) {
                     const targetElement = document.querySelector(window.location.hash);
                     if (targetElement) {
+                        // Small delay to ensure other operations (like tab opening) are done
                         setTimeout(() => {
                             let headerOffset = 80;
                             const header = document.querySelector('header');
@@ -1700,13 +1704,16 @@
 
                             const elementPosition = targetElement.getBoundingClientRect().top;
                             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                            window.scrollTo({ top: offsetPosition, behavior: 'auto' });
-                        }, 100); // Small delay to ensure layout is stable
+                            window.scrollTo({ top: offsetPosition, behavior: 'auto' }); // 'auto' for hash changes, 'smooth' for clicks
+                        }, 50);
                     }
                 }
             };
 
-            setActiveNavAndScroll(); // Call on initial load
+            // Initial calls
+            openInitialTab();
+            setActiveNavAndScroll(); // Call on initial load to set active nav for #hero or existing hash
+
             window.addEventListener('hashchange', () => {
                 setActiveNavAndScroll();
                 openInitialTab(); // Re-check tabs on hash change
@@ -1734,7 +1741,7 @@
             // Basic mobile navigation toggle
             // Add a hamburger button with id="mobile-menu-btn" in HTML header if you want to use this.
             // For example: <button id="mobile-menu-btn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button> next to theme-toggle
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn'); // This ID is not in the HTML, so this block won't run unless added
             const navMenu = document.querySelector('header nav');
 
             if (mobileMenuBtn && navMenu) {
@@ -1746,16 +1753,16 @@
                     navMenu.style.maxHeight = isClosed ? '500px' : '0px'; // Adjust 500px as needed
 
                     // Optional: Change button icon (e.g., hamburger to X)
-                    // const icon = mobileMenuBtn.querySelector('i');
-                    // if (icon) {
-                    //     if (isClosed) {
-                    //         icon.classList.remove('fa-bars');
-                    //         icon.classList.add('fa-times');
-                    //     } else {
-                    //         icon.classList.remove('fa-times');
-                    //         icon.classList.add('fa-bars');
-                    //     }
-                    // }
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) {
+                        if (isClosed) {
+                            icon.classList.remove('fa-bars');
+                            icon.classList.add('fa-times');
+                        } else {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
                 });
 
                 // Close nav menu when a link is clicked (for SPA-like behavior)
@@ -1763,11 +1770,11 @@
                     link.addEventListener('click', () => {
                         if (window.innerWidth <= 768) { // Or your mobile breakpoint
                             navMenu.style.maxHeight = '0px';
-                            // const icon = mobileMenuBtn.querySelector('i');
-                            // if (icon) { // Reset icon to bars
-                            //    icon.classList.remove('fa-times');
-                            //    icon.classList.add('fa-bars');
-                            // }
+                            const icon = mobileMenuBtn.querySelector('i');
+                            if (icon) { // Reset icon to bars
+                                icon.classList.remove('fa-times');
+                                icon.classList.add('fa-bars');
+                            }
                         }
                     });
                 });
