@@ -1246,7 +1246,7 @@
     </style>
 </head>
 
-<body class="light-theme">
+<body class="dark-theme"> <!-- Changed to dark-theme by default -->
 
     <div id="preloader">
         <div class="spinner"></div>
@@ -1323,23 +1323,21 @@
                     style="display:block;">
                     <div class="tabcontent-inner">
                         <div class="text-content">
-                            <h3><i class="fas fa-boxes-stacked icon-header"></i> Automated Gunny Bag Logistics</h3>
-                            <p><strong>Use Case:</strong> Revolutionize warehouse operations by accurately tracking
-                                gunny bags in real-time. Our system enhances inventory precision, reduces manual labor,
-                                and provides critical data for supply chain optimization.</p>
-                            <p><strong>Our Approach:</strong> Leveraging advanced object detection and instance
-                                segmentation, our AI model identifies, counts, and tracks gunny bags through complex
-                                logistical environments, integrating with inventory systems for seamless management.</p>
+                            <h3><i class="fas fa-boxes-stacked icon-header"></i> Automated Gunny Bag Analytics</h3>
+                            <p>AI-driven video analytics to track and count gunny
+                                bags in real time from CCTV counting and volumetric analysis system to dynamically
+                                track, count, and perform volumetric analysis of gunny bags, automatically measuring and
+                                verifying their numbers while being loaded, unloaded, and stacked in warehouses.</p>
                         </div>
                         <div class="media-content">
                             <h4>Live Demonstration</h4>
                             <!-- IMPORTANT: Ensure these media files are accessible at these paths relative to the HTML file -->
-                            <video class="solution-video interactive-media" width="100%" controls
-                                poster="./im_video_poster.png">
+                            <video class="solution-video interactive-media" width="100%" controls autoplay muted
+                                playsinline poster="./im_video_poster.png">
                                 <source src="./gunny-demo.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            <p class="video-caption">See our system intelligently manage inventory flow.</p>
+                            <p class="video-caption">⚠️ This is WIP, Better demo will be coming soon!</p>
                         </div>
                     </div>
                 </div>
@@ -1348,12 +1346,8 @@
                     <div class="tabcontent-inner">
                         <div class="text-content">
                             <h3><i class="fas fa-id-card icon-header"></i> Secure Face Recognition</h3>
-                            <p><strong>Use Case:</strong> Elevate security standards with robust facial recognition for
-                                access control, identity verification, and watchlist monitoring across diverse
-                                operational scenarios.</p>
-                            <p><strong>Our Approach:</strong> Our deep learning models provide superior accuracy in face
-                                detection and matching, resilient to challenging conditions like poor lighting, varied
-                                poses, and partial occlusions. Designed for speed and scalability.</p>
+                            <p>Facial recognition system to authenticate warehouse managers, hamalis (labour), and
+                                detect unauthorized intrusions in real time.</p>
                         </div>
                         <div class="media-content">
                             <h4>Technology Preview</h4>
@@ -1370,12 +1364,8 @@
                     <div class="tabcontent-inner">
                         <div class="text-content">
                             <h3><i class="fas fa-car-burst icon-header"></i> Smart Vehicle Authentication</h3>
-                            <p><strong>Use Case:</strong> Automate and secure vehicle entry/exit points for facilities,
-                                campuses, and parking structures. Our system enhances traffic flow and logs vehicle
-                                movements with precision.</p>
-                            <p><strong>Our Approach:</strong> We combine high-accuracy License Plate Recognition (LPR)
-                                with vehicle make, model, and color identification (MMCR) for a multi-layered
-                                authentication process, ensuring robust and reliable access control.</p>
+                            <p>AI-based vehicle recognition system that reads and logs vehicle license plates for
+                                authentication and tracking at warehouse premises.</p>
                         </div>
                         <div class="media-content">
                             <h4>Technology Preview</h4>
@@ -1391,13 +1381,11 @@
                 <div id="videoAnalytics" class="tabcontent animate-on-scroll fade-in-up" data-delay="200">
                     <div class="tabcontent-inner">
                         <div class="text-content">
-                            <h3><i class="fas fa-brain icon-header"></i> Proactive Video Analytics</h3>
-                            <p><strong>Use Case:</strong> Transform passive surveillance into active intelligence.
-                                Detect anomalies, monitor crowd dynamics, identify unattended objects, and analyze
-                                traffic patterns for enhanced security and operational efficiency.</p>
-                            <p><strong>Our Approach:</strong> A modular suite of AI-driven analytics tools that can be
-                                customized to detect specific events and behaviors, providing real-time alerts and
-                                actionable data for informed decision-making.</p>
+                            <h3><i class="fas fa-brain icon-header"></i> Contextual Intelligence for near Real-time
+                                analysis and Query</h3>
+                            <p>AI-powered system capable of analyzing videos in near real-time, grounded in context to
+                                capture anomalies and events. Enabling users to search, retrieve and query activities in
+                                video scenes.</p>
                         </div>
                         <div class="media-content">
                             <h4>Technology Preview</h4>
@@ -1554,7 +1542,7 @@
             const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
 
             const applyTheme = (theme) => {
-                body.className = '';
+                body.className = ''; // Clear existing theme classes
                 body.classList.add(theme);
                 if (themeIcon) {
                     if (theme === 'dark-theme') {
@@ -1572,9 +1560,10 @@
 
             let currentTheme = localStorage.getItem('theme');
             if (!currentTheme) {
-                currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark-theme' : 'light-theme';
+                // Changed default to dark-theme if no theme is in localStorage
+                currentTheme = 'dark-theme';
             }
-            applyTheme(currentTheme);
+            applyTheme(currentTheme); // Apply the theme (either from localStorage or the new default)
 
             if (themeToggle) {
                 themeToggle.addEventListener('click', () => {
